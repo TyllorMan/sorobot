@@ -16,7 +16,16 @@ Including another URLconf
 from django.conf.urls import include, url
 from django.contrib import admin
 
+from robos.views import InsereRoboView, IndexView
+
 urlpatterns = [
     url(r'^admin/', include(admin.site.urls)),
     url(r'^o/', include('oauth2_provider.urls', namespace='oauth2_provider')),
+    #url(r'^(?P<pk>[0-9]+)/$', InsereRoboView.as_view(), name='index'),
+   
+    url(r'^login/$', 'robos.views.login_user', name='login'),
+    url(r'^logout/$', 'robos.views.logout_user', name='logout'),
+    url(r'^signup/$', 'robos.views.create_user', name='signup'),
+    url(r'^$', IndexView.as_view(), name='home'),
+        
 ]
