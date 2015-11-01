@@ -16,7 +16,8 @@ Including another URLconf
 from django.conf.urls import include, url
 from django.contrib import admin
 
-from robos.views import InsereRoboView, IndexView
+
+from robos.views import InsereRoboView, IndexView, UsuarioCreate
 
 urlpatterns = [
     url(r'^admin/', include(admin.site.urls)),
@@ -25,7 +26,9 @@ urlpatterns = [
    
     url(r'^login/$', 'robos.views.login_user', name='login'),
     url(r'^logout/$', 'robos.views.logout_user', name='logout'),
-    url(r'^signup/$', 'robos.views.create_user', name='signup'),
+    url(r'^signup/$', UsuarioCreate.as_view(), name='signup'),
     url(r'^$', IndexView.as_view(), name='home'),
+
+    #url(r'^create/$', UserCreate.as_view(), name='create'),
         
 ]

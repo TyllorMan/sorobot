@@ -2,12 +2,12 @@ from django.shortcuts import render
 from django.views.generic.detail import DetailView
 from django.views.generic.edit import CreateView
 from django.views.generic import TemplateView
-from models import Robot
+from models import Robot, Usuario
 from django.http import HttpResponse
 
 from django.shortcuts import render_to_response
 from django.contrib.auth import authenticate, login
-from django.contrib.auth.models import User
+#from django.contrib.auth.models import User
 
 # Create your views here.
 
@@ -18,8 +18,10 @@ class InsereRoboView(DetailView):
 class IndexView(TemplateView):
     template_name = 'home.html'
 
-class UserCreate(CreateView):
-    model = User
+class UsuarioCreate(CreateView):
+    model = Usuario
+    fields = ['nome','email','password']
+    template_name = 'usuario_form.html'
 
 def login_user(request):
 	if not request.user.is_authenticated():
