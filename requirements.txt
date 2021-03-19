@@ -9,7 +9,7 @@ django-oauth2-provider==0.2.6.1
 django-parsley==0.6
 django-registration-redux==1.2
 django-tastypie==0.12.2
-djangorestframework==3.2.3
+djangorestframework==3.11.2
 futures==3.0.3
 gunicorn==19.3.0
 httplib2==0.8
